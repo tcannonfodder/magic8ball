@@ -1,5 +1,5 @@
 require 'rubygems'; require 'bundler'; Bundler.require
-require 'ruby-debug'
+require 'ruby-debug' if development?
 require "sinatra/reloader" if development?
 
 class Magic8Ball < Sinatra::Base
@@ -62,4 +62,5 @@ class Magic8Ball < Sinatra::Base
     shakes.times{ shaken_results << ANSWERS.sample }
     return shaken_results.sample
   end
+
 end
